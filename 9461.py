@@ -1,11 +1,11 @@
-p = [0 for i in range(101)]
-p[1]= 1
-p[2] = 1
-p[3] = 1
-for i in range(4, 101):
-    p[i] = p[i - 3] + p[i - 2]
-
 t = int(input())
+dp = []
+
+for i in range(3):
+    dp.append(1)
+dp.append(2)
 for i in range(t):
     n = int(input())
-    print(p[n])
+    for j in range(4, n):
+        dp.insert(j, dp[j - 2] + dp[j - 3])
+    print(dp[n - 1])
